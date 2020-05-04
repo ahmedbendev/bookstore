@@ -1,0 +1,12 @@
+{%extends "store/base.html"%}
+{% block content%}
+<h1>usedbook delete</h1>
+<br>
+are you sure you want to delete your usedbook
+<form  action="{% url 'usedbook-delete' usedbook.id %}"  method="post">
+  {% csrf_token %}
+  <button type="submit" class="btn btn-outline-danger btn-sm"> Suprimer </button>
+  <a href="{% url 'usedbook-detail' usedbook.id %}"><button type="button" class="btn btn-secondary btn-sm">Cancel</button></a>
+
+</form>
+{% endblock content%}

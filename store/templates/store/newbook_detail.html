@@ -1,0 +1,20 @@
+{%extends "store/base.html"%}
+{% block content%}
+<h1>book details</h1>
+<br>
+<img src="{{ newbook.book.image_book.url}}" class="bookinghome article-img">
+<div class="bookdesdetail">
+  <h4 class="bookdesdetailtitle"><h3 class="bookdesdetailtitlecolor">title_book :</h3> {{ newbook.book.title_book}}</h4>
+  <h4 class="bookdesdetailauthor"><h3 class="bookdesdetailtitlecolor">author_book ,By :</h3> {{ newbook.book.author_book}}</h4>
+  <h4 class="bookdesdetailtitle"><h3 class="bookdesdetailtitlecolor">num_page_book : </h3>{{ newbook.book.num_page_book}}</h4>
+  <h4 class="bookdesdetailtitle"><h3 class="bookdesdetailtitlecolor">isbn_book : </h3>{{ newbook.book.isbn_book}}</h4>
+  <h4 class="bookdesdetailtitle"><h3 class="bookdesdetailtitlecolor">langague_book : </h3>{{ newbook.book.langague_book}}</h4>
+  <h4 class="bookdesdetailtitle"><h3 class="bookdesdetailtitlecolor">genre_book : </h3>{% for genre in genres %}{{ genre.name_genre }}<br>{% endfor %}</h4>
+  <h4 class="bookdesdetailpricebook"><h3 class="bookdesdetailtitlecolor">price_book : </h3>{{ newbook.price_book}} DNA</h4>
+  <h4 class="bookdesdetailstarts"><h3 class="bookdesdetailtitlecolor">stars_book : </h3>{{ newbook.stars_book}} stars</h4>
+  <h4 class="bookdesdetailstarts"><h3 class="bookdesdetailtitlecolor">date_start_sell : </h3>{{ newbook.date_start_sell}} </h4>
+  <h4 class="bookdesdetailstarts"><h3 class="bookdesdetailtitlecolor">quantity_book : </h3>{{ newbook.quantity_book}} </h4>
+  <h4 class="bookdesdetailstarts"><h3 class="bookdesdetailtitlecolor">date_posted : </h3>{{ newbook.date_posted}} </h4>
+  <h4 class="bookdesdetailtitle"><h3 class="bookdesdetailtitlecolor">descript_book : </h3>{{ newbook.book.descript_book}}</h4>
+</div>
+{% endblock content%}

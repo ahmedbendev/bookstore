@@ -1,0 +1,18 @@
+{%extends "store/base.html"%}
+{% block content%}
+<h1>offre details</h1>
+offre number : {{ offre }}
+<br>userdemandeur :
+{{ offre.userdemandeur }}
+<br>useroffreur :
+{{ offre.useroffreur }}
+<br>usedbookoffer :
+{{ offre.usedbookoffer }}
+<br>usedbookdemandeur :
+{{ offre.usedbookdemandeur }}
+<br>state :
+{{ offre.state }}
+<br>content :
+{{ offre.content }}
+<br>
+{% endblock content%}

@@ -1,0 +1,16 @@
+{%extends "store/base.html"%}
+{% block content%}
+
+{{ order }}
+<h2>checkout</h2>
+<form class=""  action="{% url 'checkout' order %}" method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  <fieldset class="form-group">
+    <p>you need to fill all this information about you</p>
+    {{ form.as_p }}
+  </fieldset>
+  <div class="form-group">
+    <button class="btn btn-outline-info" type="submit" >submit</button>
+  </div>
+</form>
+{% endblock content%}

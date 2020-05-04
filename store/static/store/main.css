@@ -1,0 +1,89 @@
+.lolo{
+  color: blue ;
+}
+.home-header {
+padding-bottom: 80px;
+}
+/* homenavbarstyle */
+.usernameuserhomenavbar{
+  color: white;
+
+}
+.navbartophme {
+    background-color: #2f3548;
+}
+.bookstorelogohome {
+    width: 40px;
+    height: 40px;
+}
+.user-home-img {
+    width: 40px;
+    height: 40px;
+}
+.rightnavbarside {
+    background-color: #3ba6fb;
+    display: flex;
+}
+/* end of homenavbarstyle */
+
+/* profilestyle */
+
+/* The alert message box */
+.alert-message-profile {
+  padding: 20px;
+  background-color: #ff9800; /* yellow */
+  color: white;
+  margin-bottom: 15px;
+}
+
+/* The close button */
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* When moving the mouse over the close button */
+.closebtn:hover {
+  color: black;
+}
+/* end of profilestyle */
+
+/* leftcolhome */
+.leftcolhome {
+    background-color: #1d2739;
+}
+.ulleftcol {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 200px;
+  background-color: #f1f1f1;
+}
+
+.lileftcol {
+  display: block;
+  color: #000;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+
+.lileftcol.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.lileftcol:hover:not(.active) {
+  background-color: #555;
+  color: white;
+}
+/* end of leftcolhome */
+.bookinghome{
+  width: 230px;
+    height: 320px;
+}

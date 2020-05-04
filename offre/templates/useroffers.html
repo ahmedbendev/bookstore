@@ -1,0 +1,194 @@
+{%extends "store/base.html"%}
+{% block content%}
+    <h1> {{ user }} offers</h1>
+<br><br>
+<h1>my offer for other usedbooks</h1>
+<br><br>
+{% for userdemandeuroffer in userdemandeuroffers %}
+{% if userdemandeuroffer.state == "waiting for response"%}
+<div class="p-3 mb-2 bg-warning text-dark">
+<br>
+offre number : {{userdemandeuroffer.pk}}
+<br>
+offre userdemandeur : {{userdemandeuroffer.userdemandeur}}
+<br>
+offre useroffreur : {{userdemandeuroffer.useroffreur}}
+<br>
+offre usedbookoffer : {{userdemandeuroffer.usedbookoffer}}
+<br>
+offre usedbookdemandeur : {{userdemandeuroffer.usedbookdemandeur}}
+<br>
+offre content : {{userdemandeuroffer.content}}
+<br>
+offre state : {{userdemandeuroffer.state}}
+<br>
+offre_pub_date : {{userdemandeuroffer.offre_pub_date}}
+<br>
+<div class="">
+  <a  class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'offer-detail' userdemandeuroffer.pk %}">details</a>
+  <a  class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'offer-delete' userdemandeuroffer.pk %}">delete</a>
+</div>
+<br>
+</div>
+{% elif userdemandeuroffer.state == "approved"%}
+<div class="p-3 mb-2 bg-success text-white">
+<br>
+offre number : {{userdemandeuroffer.pk}}
+<br>
+offre userdemandeur : {{userdemandeuroffer.userdemandeur}}
+<br>
+offre useroffreur : {{userdemandeuroffer.useroffreur}}
+<br>
+offre usedbookoffer : {{userdemandeuroffer.usedbookoffer}}
+<br>
+offre usedbookdemandeur : {{userdemandeuroffer.usedbookdemandeur}}
+<br>
+offre content : {{userdemandeuroffer.content}}
+<br>
+offre state : {{userdemandeuroffer.state}}
+<br>
+offre_pub_date : {{userdemandeuroffer.offre_pub_date}}
+<br>
+<div class="">
+  <a  class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'offer-detail' userdemandeuroffer.pk %}">details</a>
+  <a  class="btn btn-success btn-sm mt-1 mb-1" href="{% url 'offer-contact' userdemandeuroffer.pk %}">contact offrer</a>
+  <a  class="btn btn-info btn-sm mt-1 mb-1" href="{% url 'offer-done' userdemandeuroffer %}">the exchange is done</a>
+</div>
+<br>
+</div>
+{% elif userdemandeuroffer.state == "refuse"%}
+<div class="p-3 mb-2 bg-danger text-white">
+<br>
+offre number : {{userdemandeuroffer.pk}}
+<br>
+offre userdemandeur : {{userdemandeuroffer.userdemandeur}}
+<br>
+offre useroffreur : {{userdemandeuroffer.useroffreur}}
+<br>
+offre usedbookoffer : {{userdemandeuroffer.usedbookoffer}}
+<br>
+offre usedbookdemandeur : {{userdemandeuroffer.usedbookdemandeur}}
+<br>
+offre content : {{userdemandeuroffer.content}}
+<br>
+offre state : {{userdemandeuroffer.state}}
+<br>
+offre_pub_date : {{userdemandeuroffer.offre_pub_date}}
+<br>
+<div class="">
+  <a  class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'offer-detail' userdemandeuroffer.pk %}">details</a>
+  <a  class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'offer-delete' userdemandeuroffer.pk %}">delete</a>
+</div>
+<br>
+</div>
+{% elif userdemandeuroffer.state == "done"%}
+<div class="p-3 mb-2 bg-secondary text-white">
+<br>
+offre number : {{userdemandeuroffer.pk}}
+<br>
+offre userdemandeur : {{userdemandeuroffer.userdemandeur}}
+<br>
+offre useroffreur : {{userdemandeuroffer.useroffreur}}
+<br>
+offre usedbookoffer : {{userdemandeuroffer.usedbookoffer}}
+<br>
+offre usedbookdemandeur : {{userdemandeuroffer.usedbookdemandeur}}
+<br>
+offre content : {{userdemandeuroffer.content}}
+<br>
+offre state : {{userdemandeuroffer.state}}
+<br>
+offre_pub_date : {{userdemandeuroffer.offre_pub_date}}
+<br>
+<div class="">
+  <a  class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'offer-detail' userdemandeuroffer.pk %}">details</a>
+</div>
+<br>
+</div>
+{% endif %}
+{% endfor %}
+
+<br><br>
+<h1>my offer for my usedbooks</h1>
+<br><br>
+{% for useroffreuroffer in useroffreuroffers %}
+{% if useroffreuroffer.state == "waiting for response"%}
+<div class="p-3 mb-2 bg-warning text-dark">
+<br>
+offre number : {{useroffreuroffer.pk}}
+<br>
+offre userdemandeur : {{useroffreuroffer.userdemandeur}}
+<br>
+offre useroffreur : {{useroffreuroffer.useroffreur}}
+<br>
+offre usedbookoffer : {{useroffreuroffer.usedbookoffer}}
+<br>
+offre usedbookdemandeur : {{useroffreuroffer.usedbookdemandeur}}
+<br>
+offre content : {{useroffreuroffer.content}}
+<br>
+offre state : {{useroffreuroffer.state}}
+<br>
+offre_pub_date : {{useroffreuroffer.offre_pub_date}}
+<br>
+<div class="">
+  <a  class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'offer-detail' useroffreuroffer.pk %}">details</a>
+  <a  class="btn btn-success btn-sm mt-1 mb-1" href="{% url 'offer-approve' useroffreuroffer.pk %}">accepti</a>
+  <a  class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'offer-refuse' useroffreuroffer.pk %}">refuse</a>
+</div>
+<br>
+</div>
+{% elif useroffreuroffer.state == "approved"%}
+<div class="p-3 mb-2 bg-success text-white">
+<br>
+offre number : {{useroffreuroffer.pk}}
+<br>
+offre userdemandeur : {{useroffreuroffer.userdemandeur}}
+<br>
+offre useroffreur : {{useroffreuroffer.useroffreur}}
+<br>
+offre usedbookoffer : {{useroffreuroffer.usedbookoffer}}
+<br>
+offre usedbookdemandeur : {{useroffreuroffer.usedbookdemandeur}}
+<br>
+offre content : {{useroffreuroffer.content}}
+<br>
+offre state : {{useroffreuroffer.state}}
+<br>
+offre_pub_date : {{useroffreuroffer.offre_pub_date}}
+<br>
+<div class="">
+  <a  class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'offer-detail' useroffreuroffer.pk %}">details</a>
+  <a  class="btn btn-success btn-sm mt-1 mb-1" href="{% url 'offer-contact' useroffreuroffer.pk %}">contact demendeur</a>
+  <a  class="btn btn-info btn-sm mt-1 mb-1" href="{% url 'offer-done' useroffreuroffer.pk %}">the exchange is done</a>
+</div>
+<br>
+</div>
+{% elif useroffreuroffer.state == "done"%}
+<div class="p-3 mb-2 bg-secondary text-white">
+<br>
+offre number : {{useroffreuroffer.pk}}
+<br>
+offre userdemandeur : {{useroffreuroffer.userdemandeur}}
+<br>
+offre useroffreur : {{useroffreuroffer.useroffreur}}
+<br>
+offre usedbookoffer : {{useroffreuroffer.usedbookoffer}}
+<br>
+offre usedbookdemandeur : {{useroffreuroffer.usedbookdemandeur}}
+<br>
+offre content : {{useroffreuroffer.content}}
+<br>
+offre state : {{useroffreuroffer.state}}
+<br>
+offre_pub_date : {{useroffreuroffer.offre_pub_date}}
+<br>
+<div class="">
+  <a  class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'offer-detail' useroffreuroffer.pk %}">details</a>
+</div>
+<br>
+</div>
+{% endif %}
+{% endfor %}
+
+{% endblock content%}

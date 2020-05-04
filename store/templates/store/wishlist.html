@@ -1,0 +1,41 @@
+{%extends "store/base.html"%}
+{% block content%}
+<main>
+  <div class="container">
+  <div class="table-responsive text-nowrap">
+  <h2>Wish List</h2>
+  <table class="table">
+      <thead>
+      <tr>
+          <th scope="col">#</th>
+          <th scope="col">wishlist_book</th>
+          <th scope="col">wishlist_date</th>
+          <th scope="col">wishlist_note</th>
+          <th scope="col">delete</th>
+      </tr>
+      </thead>
+      <tbody>
+      {% for wishlist in wishlists %}
+      <tr>
+          <th scope="row">{{ forloop.counter }}</th>
+          <td>{{ wishlist.wishlist_book }}</td>
+          <td>{{ wishlist.wishlist_date }}</td>
+          <td>{{ wishlist.wishlist_note }}</td>
+          <td><a href="{% url 'wishlistremove' wishlist.pk %}">delete</a></td>
+      </tr>
+      {% endfor %}
+      <tr>
+          <td colspan="5">        
+          <a class='btn btn-warning float-right ml-2' href='/'>Continue shopping</a>
+          <a class='btn btn-primary float-right' href="{% url 'wishlistadd' %}">Add wishlist book</a>
+          </td>
+      </tr>
+      </tbody>
+  </table>
+  </div>
+  </div>
+</main>
+
+
+
+{% endblock content%}

@@ -1,0 +1,53 @@
+{%extends "store/base.html"%}
+{% block content%}
+
+
+
+<h3 class="mt-3 text-center" > Resultat de recherch <strong class="search">{{ request.POST.search }} </strong>({{ books.count }})</h3>
+<p>you can use advanced serch</p><a href="{%url 'advancedsearch'%}"><h1>click here</h1></a>
+<h1>newbooks</h1>
+<div class="row">
+ {% for book in books%}
+  {% if book.type == "NEW" %}
+  <div class="col-3">
+    <article class=" content-section">
+     <img src="{{ book.image_book.url}}" class="bookinghome article-img">
+     <div class="bookdeshome">
+       <h4 class="bookdeshometitle">{{ book.title_book}}</h4>
+       <h4 class="bookdeshomeauthor">By : {{ book.author_book}}</h4>
+       <h4 class="bookdeshomepricebook">{{ book.newbook.price_book}} DNA</h4>
+       <h4 class="bookdeshomestarts">{{ book.newbook.stars_book}} stars</h4>
+     </div>
+    </article>
+    <a href="{% url 'newbook-detail' book.newbook.id %}">detail-book</a>
+    <a href="{% url 'newbook-detail' book.newbook.id %}">buy book</a>
+    </div>
+  {% endif %}
+ {% endfor %}
+</div>
+
+ <h1>usedbooks</h1>
+ <div class="row">
+  {% for book in books%}
+   {% if book.type == "USED" %}
+   <div class="col-3">
+   <article class=" content-section">
+    <img src="{{ book.image_book.url}}" class="bookinghome article-img">
+    <div class="bookdeshome">
+      <h4 class="bookdeshometitle">{{ book.title_book}}</h4>
+      <h4 class="bookdeshomeauthor">By : {{ book.author_book}}</h4>
+      <h4 class="bookdeshomeetatbook">etat : {{ book.usedbook.etat_book}} </h4>
+      <h4 class="bookdeshomeetatactbook">{{ book.usedbook.etat_actu_book}} /10</h4>
+    </div>
+  </article>
+  {% if book.usedbook.user_usedbook == user%}
+  <a href="{% url 'usedbook-detail' book.usedbook.id %}">detail-book</a>
+  {% else %}
+  <a href="{% url 'usedbook-detail' book.usedbook.id %}">detail-book</a>
+  <a href="{% url 'create-offer' book.usedbook.id %}">exchange-book</a>
+  {% endif %}
+  </div>
+   {% endif %}
+  {% endfor %}
+</div>
+{% endblock content%}

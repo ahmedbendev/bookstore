@@ -1,0 +1,54 @@
+{%extends "store/base.html"%}
+{% block content%}
+{% if empty == '0' %}
+<main>
+  <div class="container">
+  <div class="table-responsive text-nowrap">
+  <h2>Carte Summary</h2>
+  <table class="table">
+      <thead>
+      <tr>
+          <th scope="col">#</th>
+          <th scope="col">Item title</th>
+          <th scope="col">Price</th>
+          <th scope="col">Quantity</th>
+          <th scope="col">Total Item Price</th>
+          <th scope="col">delete</th>
+      </tr>
+      </thead>
+      <tbody>
+      {% for bookorder in currentorder.bookorders.all %}
+      <tr>
+          <th scope="row">{{ forloop.counter }}</th>
+          <td>{{ bookorder.newbook.book.title_book }}</td>
+          <td>{{ bookorder.newbook.price_book }} DNA</td>
+          <td> <a href="{% url 'bookorderaddquantity' bookorder.pk %}">+</a>{{ bookorder.quantity }}<a href="{% url 'bookorderremovequantity' bookorder.pk %}"> - </a></td>
+          <td>{{ bookorder.get_total_bookorder_price }} DNA</td>
+          <td><a href="{% url 'bookorderremove' bookorder.pk %}">delete</a></td>
+      </tr>
+      {% endfor %}
+      <tr>
+          <td colspan="4"><b>Order Total</b></td>
+          <td><b>{{ currentorder.get_total }} DNA</b></td>
+      </tr>
+      <tr>
+          <td colspan="5">
+          <a class='btn btn-warning float-right ml-2' href="{% url 'checkout' currentorder.pk %}">Proceed to checkout</a>
+          <a class='btn btn-primary float-right' href='/'>Continue shopping</a>
+          </td>
+      </tr>
+      </tbody>
+  </table>
+  </div>
+  </div>
+</main>
+
+{%else%}
+<h1> {{ useroff }} carte</h1>
+your carte is empty
+<br><br>
+<a class='btn btn-primary ' href='/'>Continue shopping</a>
+{% endif%}
+
+<br>
+{% endblock content%}

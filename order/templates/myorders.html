@@ -1,0 +1,9 @@
+{%extends "store/base.html"%}
+{% block content%}
+    <h1> {{ user }} orders</h1>
+My orders
+<br>
+{% for endorder in endorders %}
+{{ endorder }}
+{% endfor %}
+{% endblock content%}

@@ -1,0 +1,18 @@
+{%extends "store/base.html"%}
+{% block content%}
+
+
+<h2>advanced serch</h2>
+<form class=""  action="{% url 'advancedsearch_bookresult' %}" method="get" >
+  {% csrf_token %}
+  <fieldset class="form-group">
+    <p>all of the following words are the exact expression or at least one of the following words is containing in the book title</p>
+    {{ form.as_p }}
+  </fieldset>
+
+
+  <div class="form-group">
+    <button class="btn btn-outline-info" type="submit" >serch</button>
+  </div>
+</form>
+{% endblock content%}

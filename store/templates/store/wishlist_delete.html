@@ -1,0 +1,11 @@
+{%extends "store/base.html"%}
+{% block content%}
+<h1>wishlist delete</h1>
+<br>
+are you sure you want to delete your wishlist
+<form  action="{% url 'wishlistremove' wishlist.id %}"  method="post">
+  {% csrf_token %}
+  <button type="submit" class="btn btn-outline-danger btn-sm"> Suprimer </button>
+  <a href="{% url 'wishlistuser' user %}"><button type="button" class="btn btn-secondary btn-sm">Cancel</button></a>
+</form>
+{% endblock content%}

@@ -1,0 +1,18 @@
+{%extends "store/base.html"%}
+{% block content%}
+<h1>categories book list</h1>
+
+<div class="row choose-board">
+  {% for genre in genres %}
+  <div class="col-2">
+    <a class="a-simple" href="{% url 'genredetail-home' genre.id %}">
+          <div class="boreder text-center p-3 mt-4 choose">
+            <div class="mb-4 text-center text-choose">    <strong> {{ genre.name_genre }} </strong>  </div>
+            <div class=""> <i class="fas fa-wifi fa-10x"></i>  </div>
+          </div>
+      </a>
+  </div>
+  {% endfor %}
+</div>
+
+{% endblock content%}

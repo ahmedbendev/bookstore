@@ -1,0 +1,14 @@
+{%extends "store/base.html"%}
+{% block content%}
+<h1>wishlist create </h1>
+<form class=""  method="POST" action="" enctype="multipart/form-data">
+  {% csrf_token %}
+  <fieldset class="form-group">
+    <legend class="border-bottom mb-4">wishlist info</legend>
+      {{ form.as_p}}
+  </fieldset>
+  <div class="form-group">
+    <button class="btn btn-outline-info" type="submit" >submit</button>
+  </div>
+</form>
+{% endblock content%}

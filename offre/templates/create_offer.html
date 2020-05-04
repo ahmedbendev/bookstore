@@ -1,0 +1,38 @@
+{%extends "store/base.html"%}
+{% block content%}
+
+
+<h2>create your offer </h2>
+the usedbook you want is :
+<br><br>
+{{ usedbook.book.title_book}}
+<br><br>
+chose one from your usedbooks :
+<br><br>
+{% for userusedbook in userusedbooks %}
+{{ userusedbook.book.title_book}}
+<br>
+{% endfor %}
+<br>
+<form class=""  method="POST" action="" enctype="multipart/form-data">
+    {% csrf_token %}
+    <fieldset class="form-group">
+      <legend class="border-bottom mb-4">book</legend>
+{% for userusedbook in userusedbooks %}
+    <input type="radio" name="usedbookdemandeur" value="{{ userusedbook.book.title_book}}">
+    <label for="contactChoice1">{{ userusedbook.book.title_book}}</label>
+{% endfor %}
+<br>
+    </fieldset>
+    <div class="form-group">
+    <textarea name="message" rows="10" cols="30">type your message here.</textarea>
+    </div>
+    <div class="form-group">
+      <button class="btn btn-outline-info" type="submit" >make offre</button>
+    </div>
+</form>
+
+
+
+
+{% endblock content%}

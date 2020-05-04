@@ -1,0 +1,31 @@
+{%extends "store/base.html"%}
+{% block content%}
+<h1>usedbook contact</h1>
+<br>
+the information:
+<br>
+user is {{useroff}}
+<br>
+userdemandeur is {{offre.userdemandeur}}
+<br>
+useroffers is {{offre.useroffreur}}
+<br>
+we he need information about
+<br>
+{{userinfo}}
+<br><br><br><br><br>
+information about {{userinfo}}
+<br>
+<img src="{{ userinfo.profile.image.url}}" class="rounded-circle user-home-img">
+<br><br>
+{{userinfo.profile.client.first_name_cl}}
+<br>
+{{userinfo.profile.client.last_name_cl}}
+<br>
+{{userinfo.profile.client.region_cl}}
+<br>
+{{userinfo.profile.client.phone_num_cl}}
+<br>
+{{userinfo.profile.client.facebook_cl}}
+<br><br>
+{% endblock content%}

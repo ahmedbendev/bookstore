@@ -1,0 +1,12 @@
+{%extends "store/base.html"%}
+{% block content%}
+<h1>usedbook exchange done</h1>
+<br>
+are you sure that the exchange is done
+<form  action="{% url 'offer-done' offre.id %}"  method="post">
+  {% csrf_token %}
+  <button type="submit" class="btn btn-success btn-sm"> yes, its done </button>
+  <a href="{% url 'useroffers' useroff %}"><button type="button" class="btn btn-secondary btn-sm">Cancel</button></a>
+
+</form>
+{% endblock content%}

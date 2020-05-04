@@ -1,0 +1,12 @@
+{%extends "store/base.html"%}
+{% block content%}
+<h1>usedbook approved</h1>
+<br>
+are you sure you want to approve the offer
+<form  action="{% url 'offer-approve' offre.id %}"  method="post">
+  {% csrf_token %}
+  <button type="submit" class="btn btn-success btn-sm"> approved </button>
+  <a href="{% url 'useroffers' useroff %}"><button type="button" class="btn btn-secondary btn-sm">Cancel</button></a>
+
+</form>
+{% endblock content%}
